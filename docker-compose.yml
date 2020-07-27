@@ -2,7 +2,7 @@ version: "3"
 services:
   nginx-proxy:
     image: budry/jwilder-nginx-proxy-arm
-    restart: always
+    restart: unless-stopped
     ports:
       - "80:80"
       - "443:443"
@@ -17,7 +17,7 @@ services:
 
   letsencrypt:
     image: duch/letsencrypt-nginx-proxy-companion:stable
-    restart: always
+    restart: unless-stopped
     volumes:
       - certs:/etc/nginx/certs:rw
       - confd:/etc/nginx/conf.d
@@ -27,7 +27,7 @@ services:
 
   nginx_fredrikson:
     image: nginx
-    restart: always
+    restart: unless-stopped
     expose:
       - "80"
     volumes:
@@ -36,6 +36,18 @@ services:
       - VIRTUAL_HOST=${VIRTUAL_HOST}
       - LETSENCRYPT_HOST=${LETSENCRYPT_HOST}
       - LETSENCRYPT_EMAIL=${LETSENCRYPT_EMAIL}
+
+  react:
+    container_name: react
+    restart: unless-stopped
+    build: ./../blog
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./../blog:/blog
+      - /blog/node_modules
+    working_dir: /blog
+    command: npm start
 
 volumes:
   certs:
