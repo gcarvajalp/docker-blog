@@ -42,8 +42,8 @@ services:
     container_name: react
     restart: unless-stopped
     build: ./../blog
-    #ports:
-    #  - "3000:3000"
+    ports:
+      - "3000:3000"
     volumes:
       - ./../blog:/blog
       - /blog/node_modules
@@ -55,11 +55,3 @@ volumes:
   html:
   vhostd:
   confd:
-
-#Docker networks
-networks:
-  service-network:
-    driver: bridge
-    ipam:
-      config:
-        - subnet: 192.168.30.0/24
