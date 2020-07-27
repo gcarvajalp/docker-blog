@@ -30,36 +30,16 @@ services:
     restart: unless-stopped
     expose:
       - "80"
-    #volumes:
-    #  - ./public_html:/usr/share/nginx/html:ro
+    volumes:
+      - ./public_html:/usr/share/nginx/html:ro
 
     environment:
       - VIRTUAL_HOST=${VIRTUAL_HOST}
       - LETSENCRYPT_HOST=${LETSENCRYPT_HOST}
       - LETSENCRYPT_EMAIL=${LETSENCRYPT_EMAIL}
 
-  react:
-    container_name: react
-    restart: unless-stopped
-    build: ./../blog
-    #ports:
-    #  - "3000:3000"
-    volumes:
-      - ./../blog:/blog
-      - /blog/node_modules
-    working_dir: /blog
-    command: npm start
-
 volumes:
   certs:
   html:
   vhostd:
   confd:
-
-#Docker networks
-networks:
-  service-network:
-    driver: bridge
-    ipam:
-      config:
-        - subnet: 192.168.30.0/24
