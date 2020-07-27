@@ -26,12 +26,13 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:ro
 
   nginx_fredrikson:
-    image: nginx
+    image: nginx:1.12-alpine
     restart: unless-stopped
     expose:
       - "80"
     volumes:
-      - ./public_html:/usr/share/nginx/html:ro
+      #- ./public_html:/usr/share/nginx/html:ro
+
     environment:
       - VIRTUAL_HOST=${VIRTUAL_HOST}
       - LETSENCRYPT_HOST=${LETSENCRYPT_HOST}
