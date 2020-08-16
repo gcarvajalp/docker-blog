@@ -17,7 +17,7 @@ Blog personal de informática
 - [Getting Started](#getting-started)
 - [Running from command line](#running-from-command-line)
 - [Documentation](#documentation)
-- [Licence](#licence)
+- [License](#license)
 
 ## Description
 
@@ -51,6 +51,6 @@ Dockerfile command to delete image
 
 Procesos encontrados en este repositorio:
 
-## Licence
+## License
 
 Favor de leer [LICENSE](https://github.com/gcarvajalp/docker-blog/blob/master/LICENSE) para mayor información.
