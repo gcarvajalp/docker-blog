@@ -21,7 +21,7 @@ Blog personal de informática
 
 ## Description
 
-Proyecto personal para la práctica de nuevas herramientas, entre las cuales se encuentra Docker, Github Actions, ReactJS, Jest, DuckDNS entre otras.
+Proyecto personal para la práctica de nuevas herramientas, entre las cuales se encuentra Docker, Github Actions, ReactJS, Jest, DuckDNS, Raspberry PI entre otras.
 
 ## Other Projects
 
