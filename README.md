@@ -52,3 +52,5 @@ Dockerfile command to delete image
 Procesos encontrados en este repositorio:
 
 ## Licence
+
+Favor de leer [LICENSE](https://github.com/gcarvajalp/docker-blog/blob/master/LICENSE) para mayor información.
