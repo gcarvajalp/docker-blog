@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/gcarvajalp/docker-blog/issues"
   },
-  "homepage": "https://github.com/gcarvajalp/docker-blog#readme"
+  "homepage": "https://github.com/gcarvajalp/docker-blog#readme",
+  "devDependencies": {
+    "jest": "^26.4.0"
+  }
 }
