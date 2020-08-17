@@ -1,1 +1,2 @@
 docker-compose.yml merge=ours
+public_html merge=ours
