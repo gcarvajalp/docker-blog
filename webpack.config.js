@@ -1,8 +1,8 @@
 const path = require(`path`);
 const HtmlWebpackPlugin = require("html-webpack-plugin"); //installed via npm
 const webpack = require("webpack"); //to access built-in plugins
-const CleanWebpackPlugin = require(`clean-webpack-plugin`);
-const HardSourceWebpackPlugin = require(`hard-source-webpack-plugin`);
+const { CleanWebpackPlugin } = require(`clean-webpack-plugin`); //A webpack plugin to remove/clean your build folder(s).
+const HardSourceWebpackPlugin = require(`hard-source-webpack-plugin`); // plugin for webpack to provide an intermediate caching step for modules, the first build will take the normal amount of time. The second build will be signficantly faster.
 
 let mode = `development`;
 
