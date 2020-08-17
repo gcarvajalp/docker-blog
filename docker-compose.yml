@@ -1,9 +1,0 @@
-version: "3"
-services:
-  nginx:
-    image: nginx:1.15-alpine
-    container_name: local-blog
-    ports:
-      - "80:80"
-    volumes:
-      - ./public_html:/usr/share/nginx/html:ro
