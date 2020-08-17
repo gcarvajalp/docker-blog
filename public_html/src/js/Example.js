@@ -13,4 +13,4 @@ function Example() {
 const e = React.createElement;
 
 const domContainer = document.querySelector("#example");
-ReactDOM.render(e(LikeButton), domContainer);
+ReactDOM.render(e(Example), domContainer);
