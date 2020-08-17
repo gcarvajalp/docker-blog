@@ -5,7 +5,8 @@ const webpack = require("webpack"); //to access built-in plugins
 module.exports = {
   entry: "./public_html/src/js/like_button.js",
   output: {
-    path: path.resolve(__dirname, "dist"),
+    //publicPath: "/public_html",
+    path: path.resolve(__dirname + "/public_html", "dist"),
     filename: "bundle.js",
   },
 };
