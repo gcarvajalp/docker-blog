@@ -1,6 +1,8 @@
 const path = require(`path`);
 const HtmlWebpackPlugin = require("html-webpack-plugin"); //installed via npm
 const webpack = require("webpack"); //to access built-in plugins
+const CleanWebpackPlugin = require(`clean-webpack-plugin`);
+const HardSourceWebpackPlugin = require(`hard-source-webpack-plugin`);
 
 let mode = `development`;
 
@@ -12,6 +14,8 @@ module.exports = {
   mode: mode,
   entry: entries,
   plugins: [
+    new HardSourceWebpackPlugin(),
+    new CleanWebpackPlugin(),
     //Añadir un HtmlWebpackPlugin por cada entry
     new HtmlWebpackPlugin({
       filename: `index.html`,
