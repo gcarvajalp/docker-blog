@@ -7,7 +7,7 @@ const HardSourceWebpackPlugin = require(`hard-source-webpack-plugin`); // plugin
 let mode = `development`;
 
 let entries = {
-  btn: `./src/js/hooks.js`,
+  btn: `./src/js/index.js`,
 };
 
 module.exports = {
