@@ -1,12 +1,11 @@
 import React from 'react';
+import Headline from './Headline';
+
 
 function App(){
-  const greeting = `Hello function Compoenent`;
-  return(
-    <h1>
-      {greeting}
-    </h1>
-  )
+  const greeting = `Hello Function Component`;
+  return <Headline value={greeting} />;
 }
+
 
 export default App;
