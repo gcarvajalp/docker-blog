@@ -1,11 +1,22 @@
-import React from 'react';
-import Headline from './Headline';
+import React, {useState} from 'react';
 
+const App = () => {
+  const sayHello = () =>{
+    console.log('Hello');
+  }
 
-function App(){
-  const greeting = `Hello Function Component`;
-  return <Headline value={greeting} />;
+  return (
+    <Button handleClick={sayHello} />
+  );
 }
 
+const Button = ({handleClick = () => console.log('Default') })=>{
+
+  return(
+  <button type="button" onClick= {handleClick}>
+    Button
+  </button>
+  );
+}
 
 export default App;
