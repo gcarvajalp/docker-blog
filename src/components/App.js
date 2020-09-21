@@ -1,22 +1,35 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 
-const App = () => {
-  const sayHello = () =>{
-    console.log('Hello');
+function useOffline(){
+  const [isOffline,setIsOffline] = useState(false);
+
+  function onOffline(){
+    setIsOffline(true);
   }
 
-  return (
-    <Button handleClick={sayHello} />
-  );
+  function onOnline(){
+    setIsOffline(false);
+  }
+
+  useEffect(()=>{
+    window.addEventListener('offline',onOffline);
+    window.addEventListener('online',onOnline);
+
+    return ()=>{
+      window.removeEventListener('offline',onOffline);
+      window.removeEventListener('online',onOnline);
+    };
+  },[]);
 }
 
-const Button = ({handleClick = () => console.log('Default') })=>{
+function App(){
+  const isOffline = useOffline();
 
-  return(
-  <button type="button" onClick= {handleClick}>
-    Button
-  </button>
-  );
+  if(isOffline){
+    return (<div>Sorry, you're offline</div>);
+  }
+
+  return <div>You're online!</div>;
 }
 
 export default App;
