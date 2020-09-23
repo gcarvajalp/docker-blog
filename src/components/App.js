@@ -8,6 +8,8 @@ const INITIAL_LIST = [
   }
 ];
 
+
+
 const listReducer = (state, action)=>{
   switch(action.type){
     case 'ADD_ITEM':
@@ -32,7 +34,7 @@ function App(){
   function handleAdd(){
     dispatchList({type: 'ADD_ITEM', name: name, id : uuidv4()});
     setName('');
-    
+
   }
 
   return(
