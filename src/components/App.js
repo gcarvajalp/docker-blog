@@ -1,75 +1,56 @@
-import React, {useState, useEffect, useReducer} from 'react';
-import {v4 as uuidv4} from 'uuid';
+import React, {useState} from 'react';
 
-const INITIAL_LIST = [
+const initialList = [
   {
-    id: uuidv4(),
-    name : 'first Element'
+    id: 'a',
+    firstname: 'Hugo',
+    lastname: 'Welinshu',
+    year: 1988
+  },{
+    id: 'b',
+    firstname: 'Dave',
+    lastname: 'ferguson',
+    year: 1990
   }
 ];
 
-
-
-const listReducer = (state, action)=>{
-  switch(action.type){
-    case 'ADD_ITEM':
-      return state.concat({name: action.name, id: action.id});
-    default:
-      throw new Error();
-  }
-};
-
 function App(){
-  const [name,setName] = useState('');
-  //const [list, setList] = useState();
-  
-  const [list,dispatchList] = useReducer(listReducer,INITIAL_LIST);
 
+  const [list,setList] = useState(initialList);
 
-  function handleChange(event){
-    console.log('handleChange');
-    setName(event.target.value);
-  }
-
-  function handleAdd(){
-    dispatchList({type: 'ADD_ITEM', name: name, id : uuidv4()});
-    setName('');
-
+  function handleDelete(id){
+    console.log(`Deleted ${id}`);
+    const newList = list.filter(list=> list.id != id);
+    console.log(newList);
+    setList(newList);
   }
 
   return(
-    <div>
-    <AddItem name={name} onChange={handleChange} onAdd={handleAdd} />
-    <List list={list} />
-    </div>
+    <List list={list} handleDelete={()=>handleDelete()} />
   );
 }
 
-const AddItem = ({name, onChange, onAdd})=>{
+function List({list, handleDelete}){
   return(
-    <div>
-      <input type="text" value={name} onChange={onChange} />
-      <button type="button" onClick={onAdd}>Add</button>
-    </div>
-  );
-};
-
-const List = ({list})=>{
-  
-  console.log(list);
-
-  if(list){
-    return(
     <ul>
-      {list.map((element)=>(
-        <li key={element.id}>{element.name}</li>
-      ))}
+      {
+        list.map((item)=>(
+          <Item id={item.id} firstname={item.firstname} lastname={item.lastname} year={item.year} handleDelete={()=>handleDelete(item.id)} />
+        ))
+      }
     </ul>
-    );
-  }else{
-    return(<ul></ul>);
-  }
-};
+  );
+}
 
+function Item({id, firstname, lastname, year, handleDelete}){
+  return(
+    <li key={id}>
+      <span>{firstname}</span>
+      <span>{lastname}</span>
+      <span>{year}</span>
+      <button type="button" onClick={()=> handleDelete(id)}>Remove</button>
+    </li>
+  );
+}
 
 export default App;
